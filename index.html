@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="mask-icon" type="image/x-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg"
+        color="#111" />
+
+    <title>Proposal</title>
+
+    <link rel="canonical" href="https://codepen.io/rghf/pen/ZEzrbRV">
+
+    <style>
+        html,
+        body {
+            margin: 0px;
+            height: 100%;
+        }
+
+        .bg_heart {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-image: url(
+                "https://loveandspecs.com/wp-content/uploads/2015/03/valentines-day-desktop-background-roses.png");
+            background-size: 100% 100%;
+            z-index: -1;
+        }
+
+        .container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            color: black;
+            font-family: cursive;
+        }
+
+        .heart {
+            position: absolute;
+            top: -50%;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+        }
+
+        .heart:before {
+            position: absolute;
+            top: -50%;
+            left: 0;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 100%;
+        }
+
+        .heart:after {
+            position: absolute;
+            top: 0;
+            right: -50%;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 100%;
+        }
+
+        @keyframes love {
+            0% {
+                top: 110%
+            }
+        }
+
+        @-webkit-keyframes love {
+            0% {
+                top: 110%
+            }
+        }
+
+        @-moz-keyframes love {
+            0% {
+                top: 110%
+            }
+        }
+
+        @-ms-keyframes love {
+            0% {
+                top: 110%
+            }
+        }
+
+        #myButton {
+            margin-top: 10px; /* Adjust the margin as needed */
+            background-color: transparent; /* Set the background color to transparent */
+            border: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-60%);
+            cursor: pointer;
+            outline: none;
+        }
+        
+        #myButton:hover svg path {
+            fill: darkred; /* Change the heart color on hover */
+        }
+        
+        
+    </style>
+
+    <script>
+        window.console = window.console || function (t) {};
+    </script>
+
+</head>
+
+<body translate="no">
+    <html>
+
+    <head>
+        <title>love you</title>
+    </head>
+
+    <body>
+
+
+        <div class="bg_heart">
+        </div>
+
+        <div class="container">
+
+            <h2 id="text1"></h2>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+            <script id="rendered-js">
+                var love = setInterval(function () {
+                    var r_num = Math.floor(Math.random() * 40) + 1;
+                    var r_size = Math.floor(Math.random() * 65) + 10;
+                    var r_left = Math.floor(Math.random() * 100) + 1;
+                    var r_bg = Math.floor(Math.random() * 25) + 100;
+                    var r_time = Math.floor(Math.random() * 5) + 5;
+                    $('.bg_heart').append(
+                        "<div class='heart' style='width:" + r_size + "px;height:" + r_size + "px;left:" + r_left +
+                        "%;background:rgba(255," + (r_bg - 25) + "," + r_bg + ",1);-webkit-animation:love " + r_time +
+                        "s ease;-moz-animation:love " + r_time + "s ease;-ms-animation:love " + r_time +
+                        "s ease;animation:love " + r_time + "s ease'></div>");
+
+                    $('.bg_heart').append(
+                        "<div class='heart' style='width:" + (r_size - 10) + "px;height:" + (r_size - 10) +
+                        "px;left:" + (r_left + r_num) + "%;background:rgba(255," + (r_bg - 25) + "," + (r_bg + 25) +
+                        ",1);-webkit-animation:love " + (r_time + 5) + "s ease;-moz-animation:love " + (r_time + 5) +
+                        "s ease;-ms-animation:love " + (r_time + 5) + "s ease;animation:love " + (r_time + 5) +
+                        "s ease'></div>");
+
+                    if (i === txt1.length) {
+                        createButton();
+                        clearInterval(love); // Stop the interval when the text is complete
+                    }
+                }, 500);
+
+                var i = 0;
+                var condition = true;
+                var txt1 = "Hi SweetHeart.....!  <<               Now I wan't to say something special to you. <<<                So , Please read everything carefully...!                                                                           > When I saw you for the first time < You seems something Special to me.  <<                  As the days go < you get closer to me....! <<                           I don't know the reason why your thoughts always resonate inside my mind...!                                                     > Everything about you is always interesting to me...!                     << I am somewhat nervous Because I haven't said these words to anyone and I won't say to anyone in the future...!                                                     > I Love my Parents so much than anything else in this world....!                    << Now You are the only person  whom I love equally with my parents....!                                                             >I Love U <SweetHeart.....! |                  <<<< Give me One chance to Prove my Love ...!";
+                var speed = 50;
+                typeWriter();
+                //createButton();
+
+                function typeWriter() {
+                    if (i < txt1.length) {
+                        if (txt1.charAt(i) == '<')
+                            document.getElementById("text1").innerHTML += '</br>';
+                        else if (txt1.charAt(i) == '>')
+                            document.getElementById("text1").innerHTML = '';
+                        else if (txt1.charAt(i) == '|') {
+                            $(".bg_heart").css("background-image", "url('image.jpg')");
+                            condition = true;
+                        } else
+                            document.getElementById("text1").innerHTML += txt1.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    }
+                }
+
+                function createButton() {
+                    if (condition) {
+                        // If the condition is true, create and append the button
+                        var button = document.createElement("button");
+                
+                        // Create an inline SVG element
+                        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+                        svg.setAttribute("viewBox", "0 0 30 30");
+                        svg.setAttribute("width", "100");
+                        svg.setAttribute("height", "100");
+                
+                        // Create the path element for the heart shape
+                        var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                        path.setAttribute("fill", "#6a1d3e");
+                        path.setAttribute("d", "M12 21.35l-1.45-1.32C6.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C16.09 3.81 17.76 3 19.5 3 22.58 3 25 5.42 25 8.5c0 3.78-4.4 6.86-8.55 11.54L12 21.35z");
+                
+                        // Append the path to the SVG
+                        svg.appendChild(path);
+                
+                        // Create a text element
+                        var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                        text.setAttribute("x", "45%");
+                        text.setAttribute("y", "40%");
+                        text.setAttribute("text-anchor", "middle");
+                        text.setAttribute("fill", "white");
+                        text.setAttribute("font-size", "4px");
+                        text.textContent = "Click Me";
+                
+                        // Append the text to the SVG
+                        svg.appendChild(text);
+                
+                        // Append the SVG to the button
+                        button.appendChild(svg);
+                
+                        // Set the button properties
+                        button.id = "myButton";
+                        button.addEventListener("click", function () {
+                            window.location.href = "proposal.html";
+                        });
+                
+                        // Append the button to the container
+                        document.querySelector(".container").appendChild(button);
+                    }
+                }
+                
+                
+            </script>
+
+        </div>
+
+    </body>
+
+</html>
